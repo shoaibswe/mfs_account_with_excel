@@ -1,6 +1,7 @@
 import pandas as pd
 from excel_storage import ExcelStorage
 
+
 class BankApp:
     def __init__(self, excel_filename):
         self.storage = ExcelStorage(excel_filename)
@@ -58,6 +59,28 @@ class BankApp:
                     print("\nInsufficient balance.")
             else:
                 print("\nInvalid recipient.")
+        else:
+            print("\nYou are not logged in.")
+
+    def deposit_money(self, amount):
+        if self.current_account:
+            if amount > 0:
+                self.accounts[self.current_account]['balance'] += amount
+                self.save_accounts()
+                print(f"\n{amount} added to your account.")
+            else:
+                print("\nAmount should be greater than zero.")
+        else:
+            print("\nYou are not logged in.")
+
+    def withdraw_money(self, amount):
+        if self.current_account:
+            if amount > 0 and self.accounts[self.current_account]['balance'] >= amount:
+                self.accounts[self.current_account]['balance'] -= amount
+                self.save_accounts()
+                print(f"\n{amount} deducted from your account.")
+            else:
+                print("\nInsufficient balance or amount should be greater than zero.")
         else:
             print("\nYou are not logged in.")
 

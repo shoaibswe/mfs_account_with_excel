@@ -1,6 +1,7 @@
 from bank_app import BankApp
 from console_ui import display_menu_logged_out, display_menu_logged_in
 
+
 def main():
     app = BankApp("accounts.xlsx")
 
@@ -19,6 +20,12 @@ def main():
                 app.send_money(to_username, amount)
             elif choice == "4":
                 app.logout()
+            elif choice == "5":
+                amount = float(input("Enter the amount to deposit: "))
+                app.deposit_money(amount)
+            elif choice == "6":
+                amount = float(input("Enter the amount to withdraw: "))
+                app.withdraw_money(amount)
             elif choice == "0":
                 break
             else:
@@ -37,6 +44,7 @@ def main():
                 break
             else:
                 print("\nInvalid choice.")
+
 
 if __name__ == "__main__":
     main()
