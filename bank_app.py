@@ -26,9 +26,11 @@ class BankApp:
         else:
             print("Invalid username or password.")
 
-
+    def reload_accounts(self):
+        self.accounts = self.storage.load_accounts()
 
     def login_account(self, username, password):
+        self.reload_accounts() 
         if username in self.accounts and self.accounts[username]['password'] == password:
             self.current_account = username
             print("Login successful.")
