@@ -22,21 +22,21 @@ def main():
             elif choice == "0":
                 break
             else:
-                print("Invalid choice.")
+                print("\nInvalid choice.")
         else:
             choice = display_menu_logged_out()
             if choice == "1":
-                username = input("Enter username: ")
-                password = input("Enter password: ")
+                username = input("\nEnter username: ")
+                password = input("\nEnter password: ")
                 app.create_account(username, password)
             elif choice == "2":
-                username = input("Enter username: ")
-                password = input("Enter password: ")
+                username = input("\nEnter username: ")
+                password = input("\nEnter password: ")
                 app.login_account(username, password)
             elif choice == "0":
                 break
             else:
-                print("Invalid choice.")
+                print("\nInvalid choice.")
 
 if __name__ == "__main__":
     main()
